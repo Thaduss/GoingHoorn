@@ -1,0 +1,288 @@
+/* css */
+
+*
+{
+    padding: 0;
+    margin: 0;
+    border: 0;
+}
+
+body 
+{
+    font-size: 16px;
+    letter-spacing: normal;
+    line-height: normal;
+    word-spacing: normal;
+    text-indent: 0;
+
+    background-image: url("../img/Background.png"); 
+    background-size: 16rem;
+    background-repeat: repeat;
+}
+
+header 
+{
+    position: relative;
+    border-bottom: 1rem solid #212121;
+    overflow: hidden;
+    color: white;
+    background-image: linear-gradient(to bottom, rgba(0,0,0,0.8), rgba(0,0,0,0) 30%), 
+                      linear-gradient(to top, rgba(0,0,0,0.4), rgba(0,0,0,0) 15%);
+
+    .background
+    {
+        position: absolute;
+        width: 100%;
+        top: -20%;
+        z-index: -1;
+        
+    }
+
+    section 
+    {
+        display: grid;
+        margin-top: 2rem;
+        margin-bottom: 1rem;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-areas: ' NavLogo NavBar NavBar '
+                             ' NavTitle NavTitle NavTitle'
+                             ' NavFlavourText NavFlavourText NavFlavourText';
+
+        img 
+        {
+            grid-area: NavLogo;
+            width: 12rem;
+        }
+
+        nav
+        {
+            grid-area: NavBar;
+            font-size: 1.8rem;
+
+            ul
+            {
+                list-style: none;
+
+                li
+                {
+                    display: inline; 
+                }
+
+                li:not(:last-child)
+                {
+                    margin-right: 0.5rem;
+                }
+            
+                li:last-child
+                {
+                    padding: 0.5rem;
+                    float: right;
+                    background-color: green;
+                }
+            }
+
+            a 
+            {
+                text-decoration: none;
+                color: white;
+            }
+
+            a:hover 
+            {
+                color: gray;
+            }
+            
+            a.current
+            {
+                text-decoration: underline green;
+                color: gray;
+            }
+        }
+
+        h1
+        {
+            grid-area: NavTitle;
+            margin-top: 12rem;
+            font-size: 8rem;
+        }
+
+        h2
+        {
+            grid-area: NavFlavourText;
+            font-size: 2rem;
+        }
+    }
+
+}
+
+section
+{
+    width: 100rem;
+    margin: auto;
+}
+
+.IndexPageDetails 
+{
+    padding: 2rem 0;
+
+    li
+    {
+        display: grid;
+        margin: 8rem 0;
+        grid-template-columns: auto auto;
+        grid-template-areas: ' Article SideImg ';
+        color: white;
+        background-color: #212121;
+    }
+
+    li:nth-child(odd)
+    {
+        grid-template-areas: ' SideImg Article ';
+    }
+
+    article
+    {
+        grid-area: Article;
+        margin: auto 4rem;
+        font-size: 2rem;
+    }
+    
+    img
+    {
+        grid-area: SideImg;
+        background-image: linear-gradient(to right, rgba(0,0,0,1), rgba(0,0,0,0) 100%);
+    }
+
+    p
+    {
+        margin-top: 1rem;
+        margin-bottom: 4rem;
+
+        text-transform: uppercase;
+        text-transform: none;
+        border-color: white;
+        border: 1rem;
+        border-style: double;
+        border-width: 0rem;
+
+
+
+
+    }
+
+    a
+    {
+        padding: 1rem;
+        float: right;
+        text-decoration: none;
+        color: white;
+        background-color: green;
+    }
+
+    a:hover 
+    {
+        color: gray;
+    }
+}
+
+form 
+{
+    display: grid;
+    padding: 1rem;
+    margin: 4rem;
+    border: 0.2rem solid black;
+    grid-template-columns: auto auto;
+    grid-column-gap: 4rem;
+    grid-template-areas: ' Legend Legend' 
+                         ' LabelName LabelEmail'
+                         ' InputName InputEmail'
+                         ' LabelMessage LabelMessage'
+                         ' InputMessage InputMessage'
+                         ' submit submit';
+
+    legend
+    {
+        grid-area: Legend;
+    }
+
+    label 
+    {
+        padding-top: 1rem;
+    }
+
+    input, textarea
+    {
+        padding: 0.6rem;
+        border: 0.1rem solid gray;
+        border-radius: 0.2rem;
+    }
+
+    label[for=name]
+    {
+        grid-area: LabelName;
+    }
+    
+    label[for=email]
+    {
+        grid-area: LabelEmail;
+    }
+
+    label[for=message]
+    {
+        grid-area: LabelMessage;
+    }
+
+    input[type=text]
+    {
+        grid-area: InputName;
+    }
+
+    input[type=email]
+    {
+        grid-area: InputEmail;
+    }
+    
+    textarea
+    {
+        grid-area: InputMessage;
+    }
+
+    button
+    {
+        margin-top: 2rem;
+        grid-area: submit;
+    }
+}
+
+footer 
+{
+    padding: 2rem;
+    margin-top: 10rem;
+    color: white;
+    background-color: #212121;
+    font-size: 1.2rem;
+
+
+    ul
+    {
+        list-style: none;
+    
+        li
+        {
+                display: grid;
+                justify-items: center;
+                margin-bottom: 0.4rem;
+        }
+
+        a  
+        {
+            text-decoration: none;
+            color: white;
+        }
+        
+        img
+        {
+            width: 10rem;
+        }
+    }
+}
