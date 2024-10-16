@@ -1,11 +1,35 @@
 /* css */
 
+/*Afacad Flux*/
+@import url('https://fonts.googleapis.com/css2?family=Afacad+Flux:wght@100..1000&display=swap');
+
+/*Saira Condensed*/
+@import url('https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@100;200;300;400;500;600;700;800;900&display=swap'); 
+
+:root
+{
+    --webcontentsize: 100rem;
+}
+
 *
 {
     padding: 0;
     margin: 0;
     border: 0;
 }
+
+h1, h2, h3, h4, h5, h6, a, body
+{
+    font-family: Afacad Flux ;
+    font-weight: bold;
+}
+
+p
+{
+    font-family: Saira Condensed;
+    font-weight: 400;
+}
+
 
 body 
 {
@@ -77,7 +101,7 @@ header
                 {
                     padding: 0.5rem;
                     float: right;
-                    background-color: green;
+                    background-color: #3DA35D;
                 }
             }
 
@@ -94,7 +118,7 @@ header
             
             a.current
             {
-                text-decoration: underline green;
+                text-decoration: underline #3DA35D;
                 color: gray;
             }
         }
@@ -117,7 +141,7 @@ header
 
 section
 {
-    width: 100rem;
+    width: var(--webcontentsize);
     margin: auto;
 }
 
@@ -176,7 +200,7 @@ section
         float: right;
         text-decoration: none;
         color: white;
-        background-color: green;
+        background-color: #3DA35D;
     }
 
     a:hover 
@@ -185,72 +209,85 @@ section
     }
 }
 
-form 
+.RestaurantDetails, .HotelDetails
 {
+    > ul
+    {
+        list-style: none; 
+        
+        > li
+        {
+        padding: 2rem;
+        margin: 4rem;
+        color: white;
+        background-color: #212121; 
+
+    
+            img
+            {
+                width: 100%;
+            }
+
+            ul
+            {
+                list-style: none; 
+            }
+
+            a
+            {
+                padding: 1rem;
+                float: right;
+                text-decoration: none;
+                color: white;
+                background-color: #3DA35D;
+            }
+        }
+    }
+}
+
+.contact
+{
+    width: var(--webcontentsize);
     display: grid;
-    padding: 1rem;
-    margin: 4rem;
-    border: 0.2rem solid black;
-    grid-template-columns: auto auto;
-    grid-column-gap: 4rem;
-    grid-template-areas: ' Legend Legend' 
-                         ' LabelName LabelEmail'
-                         ' InputName InputEmail'
-                         ' LabelMessage LabelMessage'
-                         ' InputMessage InputMessage'
-                         ' submit submit';
+    grid-template-columns: 2fr 1fr;
+    grid-template-areas: 'contact form';
 
-    legend
+    table
     {
-        grid-area: Legend;
+        grid-area: contact;
     }
 
-    label 
+    form 
     {
-        padding-top: 1rem;
-    }
-
-    input, textarea
-    {
-        padding: 0.6rem;
-        border: 0.1rem solid gray;
-        border-radius: 0.2rem;
-    }
-
-    label[for=name]
-    {
-        grid-area: LabelName;
-    }
-    
-    label[for=email]
-    {
-        grid-area: LabelEmail;
-    }
-
-    label[for=message]
-    {
-        grid-area: LabelMessage;
-    }
-
-    input[type=text]
-    {
-        grid-area: InputName;
-    }
-
-    input[type=email]
-    {
-        grid-area: InputEmail;
-    }
-    
-    textarea
-    {
-        grid-area: InputMessage;
-    }
-
-    button
-    {
+        grid-area: form;
+        padding: 1rem;
         margin-top: 2rem;
-        grid-area: submit;
+
+        background-color: white;
+    
+        border: 0.2rem double;
+        border-radius: 1rem;
+        border-color: gray;
+        border-width: 0.2rem;
+
+        label 
+        {
+            padding-top: 1rem;
+        }
+
+        input, textarea
+        {
+            display: block;
+            width: 100%;
+            padding: 0.6rem;
+            border: 0.1rem solid gray;
+            border-radius: 0.2rem;
+        }
+
+        button
+        {
+            margin-top: 2rem;
+        }
     }
 }
 
@@ -285,4 +322,63 @@ footer
             width: 10rem;
         }
     }
+}
+
+@media only screen and (max-width: 100rem)
+{
+    header
+    {
+        
+        width: var(--webcontentsize);
+        img
+        {
+            height: 121%;
+        }
+
+        
+        section
+        {
+            > *
+            {
+                margin: 0 1rem;
+            }
+
+        }
+    }
+
+    
+
+    section
+    {
+        width: 100%;
+    }
+
+    footer
+    {
+        width: var(--webcontentsize);
+        padding: 2rem 0;
+    }
+
+}
+
+
+@media only screen and (max-width: 768px)
+{
+    header
+    {
+        nav
+        {
+            li:not(:last-child)
+            {
+                display: none;
+            }
+
+            li:last-child
+            {
+                padding: 100rem;
+                font-size: 2rem;
+            }
+        }
+    }
+
 }

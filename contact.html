@@ -5,12 +5,13 @@
         <meta name="Keywords" content="Hoorn, tourist, hotel, event, restaurant">
         <meta name="description" content="Website for tourists going to Hoorn">
         <meta name="author" content="Tim">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" type="text/css" href="./css/stylesheet.css">
         <title>GoingHoorn</title>
     </head>
     <body>
         <header>
-            <img class="background" src="./img/NavBackground/NavContact.png" title="BackgroundNavContact" alt="Old building center at a big harbor">
+            <img class="background" src="./img/NavBackground/NavContact.png" title="BackgroundNavContact" alt="Old tower in the center at a big harbor">
             <section>  
                 <img src="img/logo.png" title="GoingHoorn logo" alt="background test test test test"> 
                 <nav>
@@ -36,23 +37,43 @@
                     </ul>
                 </nav>
                 <h1>Hoorn</h1>
-                <h2>The City of Gold</h2>
+                <h2>Was there anything unclear&quest;</h2>
             </section>
         </header>
-        
-        <form action="form.php" method="post">
+         
+        <section class="contact">
+            <table>
+                <tr>
+                    <th>Phone Number</th>
+                    <th>Location</th>
+                </tr>
+                <tr>
+                    <th>06-35284944</th>
+                    <th>Hoorn Nieuwe Steen 1 1625HV</th>
+                </tr>
+            </table>
+            <form action="form.php" method="post">
+                    <label for="mr">Mr.</label>
+                    <input type="radio" id="mr" name="salutation" value="mr">
 
-                <label for="name">name&colon;</label>
-                <input type="text" id="name" name="name" placeholder="Enter your name here&period;&period;&period;">
+                    <label for="ms">Ms.</label>
+                    <input type="radio" id="ms" name="salutation" value="ms">
 
-                <label for="email">email&colon;</label>
-                <input type="email" id="email" name="email" placeholder="Enter your email here&period;&period;&period;">
+                    <label for="name">name&colon;</label>
+                    <input type="text" id="name" name="name" placeholder="Enter your name here&period;&period;&period;">
 
-                <label for="message">message&colon;</label>
-                <textarea rows="6" cols="35" id="message" name="message" placeholder="Your message here&period;&period;&period;"></textarea>
+                    <label for="number">Phone Number&colon;</label>
+                    <input type="number" id="number" name="number" placeholder="Enter your phone number here&period;&period;&period;">
 
-            <button type="submit">Submit</button>
-        </form>
+                    <label for="email">email&colon;</label>
+                    <input type="email" id="email" name="email" placeholder="Enter your email here&period;&period;&period;">
+
+                    <label for="message">message&colon;</label>
+                    <textarea rows="6" cols="35" id="message" name="message" placeholder="Your message here&period;&period;&period;"></textarea>
+
+                <button type="submit">Submit</button>
+            </form>
+        </section>
 
         <footer>
             <ul>
