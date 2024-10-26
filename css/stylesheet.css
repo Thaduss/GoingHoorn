@@ -147,6 +147,13 @@ section
 
 .IndexPageDetails 
 {
+    > h1
+    {
+        margin: 2rem;
+        text-align: center;
+        font-size: 2.5rem;
+    }
+
     padding: 2rem 0;
 
     li
@@ -211,35 +218,195 @@ section
 
 .RestaurantDetails, .HotelDetails
 {
+    > h1
+    {
+        margin: 2rem;
+        text-align: center;
+        font-size: 2.5rem;
+    }
+
     > ul
     {
         list-style: none; 
         
         > li
         {
-        padding: 2rem;
-        margin: 4rem;
-        color: white;
-        background-color: #212121; 
+            padding: 2rem;
+            margin: 2rem 0;
+            color: white;
+            background-color: #212121; 
+            display: grid;
+            grid-template-columns: auto, 1fr;
+            grid-template-areas: ' img img ' 
+                                 ' title title '
+                                 ' details button ';
 
-    
-            img
+            h1
             {
-                width: 100%;
+                grid-area: title;
+                font-size: 3rem;
             }
 
-            ul
+            p
             {
-                list-style: none; 
+                grid-area: details;
+                margin-right: 2rem;
+                font-size: 2rem;
+            }
+
+            img
+            {
+                grid-area: img;
+                width: 100%;
             }
 
             a
             {
+                grid-area: button;
+                font-size: 2rem;
                 padding: 1rem;
+                margin-top: auto;
                 float: right;
                 text-decoration: none;
                 color: white;
                 background-color: #3DA35D;
+            }
+        }
+    }
+}
+
+.Events
+{
+    padding: 4rem;
+    background-color: #212121;
+    color: white;
+
+    h1
+    {
+        grid-area: title;
+        font-size: 3rem;
+    }
+
+    p
+    {
+        grid-area: paragraf;
+        font-size: 2.5rem;
+    }
+
+    img
+    {
+        margin: auto;
+        grid-area: image;
+    }
+
+    article
+    {
+        margin-bottom: 10rem;
+    }
+
+    .Westfries
+    {
+        display: grid;
+        grid-template-columns: auto auto;
+        grid-template-rows: auto 1fr;
+        grid-template-areas: ' title image '
+                             ' paragraf image';
+
+        h1, p
+        {
+            padding-right: 2rem;
+        }
+    }
+
+    .OudeHaven, .Museum20eEeuw
+    {
+        display: grid;
+        grid-template-columns: auto auto;
+        grid-template-rows: auto 1fr;
+        grid-template-areas: ' image title ' 
+                             ' image paragraf ';
+
+        h1, p
+        {
+            padding-left: 2rem;
+        }
+        
+        img
+        {
+            width: 35rem;
+        }
+    }
+
+    .Stadsstrand, .HetPark
+    {
+        display: grid;
+        grid-template-columns: auto ;
+        grid-template-rows: auto 1fr auto;
+        grid-template-areas: ' title '
+                             ' paragraf '  
+                             ' image ';
+
+        img
+        {
+            margin-top: 3rem;
+            width: 100%;
+        }
+    }
+}
+
+.TimeLine
+{
+    width: var(--webcontentsize);
+    margin: auto;
+    margin-top: 6rem;
+
+    > ul
+    {
+        list-style: none; 
+        border-right: 0.5rem solid black;
+        padding-right: 1rem;
+
+        > li
+        {
+            margin: 2rem 0;
+
+            h2
+            {
+                border-bottom: 0.5rem solid black;
+                margin-bottom: 1rem;
+                font-size: 3rem;
+            }
+
+            article
+            {
+                display: grid;
+                grid-template-columns: auto auto;
+                grid-template-rows: auto auto 1fr;
+                grid-template-areas: ' year year '
+                                     ' title img '
+                                     'paragraf img ';
+                background-color: #212121;
+                padding: 2rem;
+                color: white;
+            }
+
+            h1
+            {
+                grid-area: title;
+                font-size: 3rem;
+            }
+
+            p
+            {
+                grid-area: paragraf;
+                font-size: 2.5rem;
+                margin-right: 3rem;
+            }
+
+            img
+            {
+                margin: auto;
+                grid-area: img;
             }
         }
     }
@@ -329,10 +496,11 @@ footer
     header
     {
         
-        width: var(--webcontentsize);
-        img
+        .background
         {
+            width: var(--webcontentsize);
             height: 121%;
+            object-fit: cover;
         }
 
         
@@ -342,30 +510,123 @@ footer
             {
                 margin: 0 1rem;
             }
-
         }
     }
-
-    
 
     section
     {
         width: 100%;
     }
 
-    footer
+    .Events
     {
-        width: var(--webcontentsize);
-        padding: 2rem 0;
+        width: 90%;
+        padding: 0rem;
+        h1, p
+        {
+            padding: 1rem;
+        }
+        img
+        {
+            width: 100%;
+        }
     }
 
-}
+    .TimeLine
+    {
+        width: 90%;
+        img
+        {
+            width: 100%;
+        }
+    }
 
+    footer
+    {
+        padding: 2rem 0;
+    }
+}
 
 @media only screen and (max-width: 768px)
 {
     header
     {
+        #menu-toggle
+        {
+            display: none;
+        }
+
+        .hamburger
+        {
+            position: relative;
+            display: inline-block;
+            width: 30px;
+            height: 20px;
+            cursor: pointer;
+
+            span
+            {
+                position: absolute;
+                left: 0;
+                right: 0;
+                height: 3px;
+                background-color: #212121;
+
+                :nth-child(1)
+                {
+                    top: 0;  
+                }
+                :nth-child(2)
+                {
+                   top: 9px; 
+                }
+                :nth-child(3)
+                {
+                   bottom: 0; 
+                }
+            }
+        }
+         
+        nav
+        {
+            position: absolute;
+            top: 0;
+            right: -300px;
+            width: 300px;
+            height: 100%;
+            background-color: #212121;
+            color: white;
+
+            ul
+            {
+                list-style-type: none;
+                padding: 0;
+                margin: 0;
+
+                li
+                {
+                    padding: 10px;
+
+                    a
+                    {
+                        color: white;
+                        text-decoration: none;
+                    }
+                }
+            }
+        }
+
+        #menu-toggle:checked ~ nav
+        {
+            left: 0;
+        }
+
+
+
+        
+
+/*
+
         nav
         {
             li:not(:last-child)
@@ -379,6 +640,114 @@ footer
                 font-size: 2rem;
             }
         }
+
+*/
     }
+
+    .IndexPageDetails
+    {
+        li
+        {
+            grid-template-columns: auto;
+            grid-template-areas: ' SideImg '
+                                 ' Article ' ;
+            padding-bottom: 2rem;
+        }
+        li:nth-child(odd)
+        {
+            grid-template-areas: ' SideImg '
+                                 ' Article ' ;
+        }
+
+        img
+        {
+            width: 100%;
+        }
+    }
+
+    .RestaurantDetails, .HotelDetails
+    {
+        ul
+        {
+            li
+            {
+                grid-template-columns: auto;
+                grid-template-rows: auto auto auto auto 2rem;
+                grid-template-areas: ' title '
+                                     ' img ' 
+                                     ' details '
+                                     ' button '
+                                     ' . ';
+
+                padding: 0rem;
+
+                h1, p
+                {
+                    text-align: center;
+                    padding: 1rem;
+                }
+
+                a
+                {
+                    text-align: center;
+                }
+
+                
+            }
+        }
+    }
+
+    .Events
+    {
+
+        h1, p
+        {
+            text-align: center;
+            padding: 1rem;
+        }
+
+        padding: 0rem;
+        .Stadsstrand, .HetPark, .OudeHaven, .Museum20eEeuw, .Westfries
+        {
+            grid-template-columns: auto ;
+            grid-template-rows: auto auto auto;
+            grid-template-areas: ' image '
+                                 ' title '
+                                 ' paragraf '  
+                                 ;
+
+            img
+            {
+                margin-top: 3rem;
+                width: 100%;
+            }
+        }
+    }
+
+    .TimeLine
+    {
+        ul
+        {
+            li
+            {
+                
+                article
+                {
+                    p
+                    {
+                        margin-bottom: 4rem;
+                    }
+                    display: grid;
+                    grid-template-columns: auto;
+                    grid-template-areas: ' year '
+                                         ' title '
+                                         'paragraf '
+                                         ' img ';
+                }
+            }
+        }
+
+    }
+    
 
 }
