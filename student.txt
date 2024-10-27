@@ -1,0 +1,5 @@
+Student name: Tim Hermans
+Student number: 718607
+Student class: HAINFVT1B
+Github Repository: https://github.com/Thaduss/GoingHoorn
+Github Pages URL: https://thaduss.github.io/

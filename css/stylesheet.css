@@ -44,6 +44,21 @@ body
     background-repeat: repeat;
 }
 
+
+.cookie
+{
+    position: fixed;
+    text-align: center;
+    background-color: white; 
+    z-index: 9999;
+    left: 3rem;
+    width: 20%;
+    padding: 2rem;
+    border: 0.2rem solid #212121;
+    border-radius: 0.5rem;
+}
+
+
 header 
 {
     position: relative;
@@ -53,13 +68,23 @@ header
     background-image: linear-gradient(to bottom, rgba(0,0,0,0.8), rgba(0,0,0,0) 30%), 
                       linear-gradient(to top, rgba(0,0,0,0.4), rgba(0,0,0,0) 15%);
 
+
+    input
+    {
+        display: none;
+    }
+
+    .hamburger
+    {
+        display: none;
+    }
+
     .background
     {
         position: absolute;
         width: 100%;
         top: -20%;
         z-index: -1;
-        
     }
 
     section 
@@ -77,6 +102,10 @@ header
             grid-area: NavLogo;
             width: 12rem;
         }
+        .contactmobile
+        {
+            display: none;
+        }
 
         nav
         {
@@ -89,7 +118,7 @@ header
 
                 li
                 {
-                    display: inline; 
+                    display: inline;
                 }
 
                 li:not(:last-child)
@@ -136,7 +165,6 @@ header
             font-size: 2rem;
         }
     }
-
 }
 
 section
@@ -270,6 +298,11 @@ section
                 text-decoration: none;
                 color: white;
                 background-color: #3DA35D;
+
+            }
+            a:link
+            {
+               color: #FFFFFE;
             }
         }
     }
@@ -418,24 +451,44 @@ section
     display: grid;
     grid-template-columns: 2fr 1fr;
     grid-template-areas: 'contact form';
+    margin-top: 2rem;
 
-    table
+    aside
     {
         grid-area: contact;
+        background-color: white;
+        margin-right: 5rem;  
+        padding-left: 2rem;
+        font-size: 3rem; 
+
+        border-style: double;
+        border-width: 0.2rem;
+        border-radius: 1rem;
+        border-color: gray;
+
+        ul
+        {
+            list-style: none;
+            li
+            {
+                margin: 1rem 0;
+                font-family: Saira Condensed;
+                font-weight: 400;
+            }
+        }
     }
 
     form 
     {
         grid-area: form;
         padding: 1rem;
-        margin-top: 2rem;
 
         background-color: white;
     
-        border: 0.2rem double;
+        border-style: double;
+        border-width: 0.2rem;
         border-radius: 1rem;
         border-color: gray;
-        border-width: 0.2rem;
 
         label 
         {
@@ -470,12 +523,10 @@ footer
     ul
     {
         list-style: none;
-    
+
         li
         {
-                display: grid;
-                justify-items: center;
-                margin-bottom: 0.4rem;
+            margin-bottom: 0.4rem;
         }
 
         a  
@@ -518,6 +569,14 @@ footer
         width: 100%;
     }
 
+    .IndexPageDetails
+    {
+        img
+        {
+            width: 100%;
+        }
+    }
+
     .Events
     {
         width: 90%;
@@ -532,7 +591,7 @@ footer
         }
     }
 
-    .TimeLine
+    .TimeLine, .contact
     {
         width: 90%;
         img
@@ -540,6 +599,7 @@ footer
             width: 100%;
         }
     }
+    
 
     footer
     {
@@ -551,97 +611,95 @@ footer
 {
     header
     {
+
         #menu-toggle
+        {
+            display: none;
+        }
+
+        section > img
         {
             display: none;
         }
 
         .hamburger
         {
-            position: relative;
+            position: absolute;
             display: inline-block;
-            width: 30px;
-            height: 20px;
             cursor: pointer;
 
-            span
+        }
+
+        section
+        {
+            img
+            {
+                width: 3rem;
+            }
+
+            .contactmobile
+            {
+                display: block;
+                grid-area: NavBar;
+                padding: 0.5rem;
+                margin-left: 50%;
+                background-color: #3DA35D;
+                color: white;
+                text-decoration: none;
+                text-align: center;
+                float: right;
+
+                
+            }
+
+            nav
             {
                 position: absolute;
-                left: 0;
-                right: 0;
-                height: 3px;
+                top: 0;
+                right: -100rem;
+                width: 50%;
+                height: 100%;
                 background-color: #212121;
-
-                :nth-child(1)
-                {
-                    top: 0;  
-                }
-                :nth-child(2)
-                {
-                   top: 9px; 
-                }
-                :nth-child(3)
-                {
-                   bottom: 0; 
-                }
-            }
-        }
-         
-        nav
-        {
-            position: absolute;
-            top: 0;
-            right: -300px;
-            width: 300px;
-            height: 100%;
-            background-color: #212121;
-            color: white;
-
-            ul
-            {
-                list-style-type: none;
-                padding: 0;
                 margin: 0;
 
-                li
-                {
-                    padding: 10px;
+                
 
-                    a
+
+                ul
+                {
+                    list-style-type: none;
+                    padding: 0;
+
+                    li
                     {
-                        color: white;
-                        text-decoration: none;
+                        display: block ;
+                        padding: 10px;
+
+                        justify-self: center;
+
+
+                        a
+                        {
+                            color: white;
+                            text-decoration: none;
+                            font-size: 2rem;
+                        }
+                    }
+
+                    li:last-child
+                    {
+                        float: none;
                     }
                 }
+
             }
         }
 
         #menu-toggle:checked ~ nav
         {
-            left: 0;
+            right: 0;
+            transition: 0.4s;
         }
-
-
-
-        
-
-/*
-
-        nav
-        {
-            li:not(:last-child)
-            {
-                display: none;
-            }
-
-            li:last-child
-            {
-                padding: 100rem;
-                font-size: 2rem;
-            }
-        }
-
-*/
     }
 
     .IndexPageDetails
@@ -749,5 +807,29 @@ footer
 
     }
     
+    .contact
+    {
+        grid-template-columns: auto;
+        grid-template-areas: ' contact '
+                             ' form ';
 
+        aside
+        {
+            margin:  0 0 2rem 0;
+        }
+    }
+
+    footer
+    {
+        ul
+        {
+            li
+            {
+                display: grid;
+                justify-items: center;
+                margin-bottom: 0.4rem;
+            }
+        }
+    }
 }
+
