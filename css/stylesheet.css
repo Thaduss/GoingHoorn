@@ -489,6 +489,7 @@ section
         border-width: 0.2rem;
         border-radius: 1rem;
         border-color: gray;
+        font-size: 1.5rem;
 
         label 
         {
@@ -497,8 +498,9 @@ section
 
         input, textarea
         {
+            margin: auto;
             display: block;
-            width: 100%;
+            width: 90%;
             padding: 0.6rem;
             border: 0.1rem solid gray;
             border-radius: 0.2rem;
@@ -506,7 +508,13 @@ section
 
         button
         {
+            display: grid;
+            justify-self:  center;
             margin-top: 2rem;
+            background-color: #212121;
+            color: white;
+            padding: 0.6rem 6rem;
+            font-size: 1.5rem;
         }
     }
 }
@@ -518,15 +526,32 @@ footer
     color: white;
     background-color: #212121;
     font-size: 1.2rem;
-
+        display: flex;
+        justify-content: center;
 
     ul
     {
         list-style: none;
+        width: var(--webcontentsize);
+        display: flex;
+        justify-content: center;
 
         li
         {
             margin-bottom: 0.4rem;
+            align-content: center;
+            display: grid;
+            margin: 0 1rem;
+        }
+
+        li:first-child
+        {
+            margin-right: 10rem;
+        }
+
+        li:nth-child(3)
+        {
+            margin-left: 10rem;
         }
 
         a  
@@ -538,6 +563,7 @@ footer
         img
         {
             width: 10rem;
+            
         }
     }
 }
@@ -604,6 +630,11 @@ footer
     footer
     {
         padding: 2rem 0;
+
+        ul
+        {
+            width: 90%;
+        }
     }
 }
 
@@ -823,13 +854,24 @@ footer
     {
         ul
         {
+            display: block;
             li
             {
                 display: grid;
                 justify-items: center;
                 margin-bottom: 0.4rem;
+                margin: 0rem;
+            }
+
+            li:first-child
+            {
+                margin-right: 0rem;
+            }
+
+            li:nth-child(3)
+            {
+                margin-left: 0rem;
             }
         }
     }
 }
-
